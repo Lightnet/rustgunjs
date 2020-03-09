@@ -60,7 +60,7 @@ struct DupOpt{
 }
 
 struct Dup{
-    //s: Vec<String>,
+    s: Vec<Value>,
     #[allow(dead_code)]
     opt: DupOpt
 }
@@ -88,16 +88,18 @@ impl Gun{
 	}
 }
 
+//default setup variable
 impl Default for Gun{
     fn default() -> Gun{
         Gun {
             dup: Dup{ 
+                s: vec![],
                 opt:  DupOpt{max:1000,age:9000} 
             }
         }
     }
 }
-//https://stackoverflow.com/questions/27062874/how-to-default-initialize-a-struct-containing-an-array-in-rust
+
 
 impl Dup{
 
@@ -189,7 +191,7 @@ async fn gunws(req: HttpRequest, stream: web::Payload) -> Result<HttpResponse, E
 //use std::sync::{Arc, Condvar, Mutex};
 use std::thread;
 use std::time::Duration;
-//https://stackoverflow.com/questions/36181719/what-is-the-correct-way-in-rust-to-create-a-timeout-for-a-thread-or-a-function
+
 
 //main entry point
 #[actix_rt::main]
