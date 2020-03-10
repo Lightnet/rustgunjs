@@ -26,3 +26,5 @@ cargo build // build app
 cargo run // run app
 cargo clearn // clean up target debug folder
 ```
+
+[![Run on Repl.it](https://repl.it/badge/github/Lightnet/rustgunjs)](https://repl.it/github/Lightnet/rustgunjs)
