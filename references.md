@@ -1,9 +1,9 @@
  * https://github.com/serde-rs/json
  * https://doc.rust-lang.org/rust-by-example/std/hash.html
  * https://doc.rust-lang.org/1.5.0/std/collections/struct.HashMap.html
+ * https://docs.serde.rs/serde_json/value/index.html
  * 
- * 
- * 
+ * https://lankydan.dev/2018/02/18/rust-for-java-devs-creating-functions/
 
 
  * https://stackoverflow.com/questions/44610594/how-can-i-deserialize-json-with-a-top-level-array-using-serde
