@@ -1,6 +1,7 @@
 [workspace]
 
 members = [
-    "apphttp",
+    "webservergunrs",
+    "httpwsgunrs",
     "gunrs"
 ]

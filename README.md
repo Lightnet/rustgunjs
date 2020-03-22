@@ -25,6 +25,9 @@
 cargo build // build app
 cargo run // run app
 cargo clearn // clean up target debug folder
+
+cargo run --bin httpwsgunrs // gun with lib
+cargo run --bin webservergunrs //gun without lib
 ```
 
 [![Run on Repl.it](https://repl.it/badge/github/Lightnet/rustgunjs)](https://repl.it/github/Lightnet/rustgunjs)

@@ -13,13 +13,6 @@ mod tests {
     }
 }
 */
-/*
-mod gun {
-    mod dup{
-        fn check(){}
-    }
-}
-*/
 
 pub struct Gun{
     #[allow(dead_code)]

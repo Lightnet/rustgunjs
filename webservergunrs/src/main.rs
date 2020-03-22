@@ -8,7 +8,7 @@ extern crate serde_json;
 extern crate rand;
 
 use serde_json::{Value};
-//use serde_json::json;
+use serde_json::json;
 
 use actix::{Actor, StreamHandler};
 //use actix_web::{web, App, Error, HttpRequest, HttpResponse, HttpServer, Responder};
@@ -16,10 +16,10 @@ use actix_web::{web, App, Error, HttpRequest, HttpResponse, HttpServer};
 use actix_files as fs;
 use actix_web_actors::ws;
 
-//use rand::{thread_rng, Rng};
-//use rand::distributions::Alphanumeric;
+use rand::{thread_rng, Rng};
+use rand::distributions::Alphanumeric;
 
-use gunrs;
+//use gunrs;
 
 /// Define http actor
 struct MyWs;
@@ -50,7 +50,7 @@ async fn indexws(req: HttpRequest, stream: web::Payload) -> Result<HttpResponse,
 //===============================================
 // == Gun start setup
 //===============================================
-/*
+
 struct Gun{
     #[allow(dead_code)]
     dup:Dup,
@@ -99,7 +99,7 @@ impl Dup{
                 .collect() //return random 32 letters and numbers
     }
 }
-*/
+
 /*
 struct StoreOpt{
     file:String
@@ -125,7 +125,7 @@ impl Store{
     }
 }
 */
-/*
+
 impl Gun{
 
     #[allow(dead_code)]
@@ -156,9 +156,8 @@ impl Gun{
 		println!("impl gun test");
 	}
 }
-*/
+
 //default setup variable
-/*
 impl Default for Gun{
     fn default() -> Gun{
         Gun {
@@ -170,13 +169,13 @@ impl Default for Gun{
         }
     }
 }
-*/
+
 
 //===============================================
 // Gun End setup
 //===============================================
 struct GunWs{
-	gun: gunrs::Gun //setup gun
+	gun: Gun //setup gun
 }
 //
 impl Actor for GunWs {
@@ -223,7 +222,7 @@ impl StreamHandler<Result<ws::Message, ws::ProtocolError>> for GunWs {
 }
 //http response and request
 async fn gunws(req: HttpRequest, stream: web::Payload) -> Result<HttpResponse, Error> {
-    let resp = ws::start(GunWs {gun: gunrs::Gun::default()}, &req, stream);//setup websocket
+    let resp = ws::start(GunWs {gun: Gun::default()}, &req, stream);//setup websocket
     /*
     let resp = ws::start(GunWs {gun: Gun {
             dup: Dup{ 
@@ -252,9 +251,15 @@ use std::time::Duration;
 async fn main() -> std::io::Result<()> {
     println!("web host server init...");
 
-    //let _gun = gunrs::Gun::default();
+    let _gun = Gun::default();
+    //let _randstring = _gun.dup.random();
+
     //let randstring = _gun.dup.random();
-    //println!("{}",randstring);
+    //println!("{}",randstring.random());
+    //let _randstring = _gun.dup();
+    //println!("{}",_randstring.random());
+    //let _randstring = _gun.dup;
+    //println!("{:?}", _randstring);
 
     let _timer_out = thread::spawn(move || {
         thread::sleep(Duration::from_millis(5000));
